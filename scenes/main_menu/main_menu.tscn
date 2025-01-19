@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://fa7a48mbas03"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_3omwk"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3omwk")
+
+[node name="Play Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 121.0
+offset_right = 389.0
+offset_bottom = 179.0
+text = "PLAY"
+
+[node name="Test World Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 207.0
+offset_right = 470.0
+offset_bottom = 269.0
+text = "TEST WORLD"
+
+[connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Test World Button" to="." method="_on_test_world_button_pressed"]
