@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://itedq1axawef"
-path="res://.godot/imported/tile_grass2.png-7f097b047afaaf0d275f9ef9d4841f0f.ctex"
+uid="uid://bc8lpelswvhap"
+path="res://.godot/imported/char_cultist_naked_blood_circle_sheet.png-8fe73f0cb2dce715fcd75b0f1a045de0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tile_grass2.png"
-dest_files=["res://.godot/imported/tile_grass2.png-7f097b047afaaf0d275f9ef9d4841f0f.ctex"]
+source_file="res://assets/player/char_cultist_naked_blood_circle_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_blood_circle_sheet.png-8fe73f0cb2dce715fcd75b0f1a045de0.ctex"]
 
 [params]
 

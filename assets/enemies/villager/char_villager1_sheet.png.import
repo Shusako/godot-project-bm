@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxoml348ayi0x"
-path="res://.godot/imported/tile_flower1.png-6725849290c940de4abcdda455915224.ctex"
+uid="uid://bklpg6a2374de"
+path="res://.godot/imported/char_villager1_sheet.png-113ad8cd6091ac76e2e9cc0f06066325.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tile_flower1.png"
-dest_files=["res://.godot/imported/tile_flower1.png-6725849290c940de4abcdda455915224.ctex"]
+source_file="res://assets/enemies/villager/char_villager1_sheet.png"
+dest_files=["res://.godot/imported/char_villager1_sheet.png-113ad8cd6091ac76e2e9cc0f06066325.ctex"]
 
 [params]
 

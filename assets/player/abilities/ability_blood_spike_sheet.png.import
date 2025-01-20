@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gbmir5f6hx2s"
-path="res://.godot/imported/char_cultist_naked_sheet.png-34ae9d3e56038309ff7172dbcb5148c4.ctex"
+uid="uid://lqy1lyq2sbgf"
+path="res://.godot/imported/ability_blood_spike_sheet.png-d09d498bf003b888ee852c6acf66931a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/char_cultist_naked_sheet.png"
-dest_files=["res://.godot/imported/char_cultist_naked_sheet.png-34ae9d3e56038309ff7172dbcb5148c4.ctex"]
+source_file="res://assets/player/abilities/ability_blood_spike_sheet.png"
+dest_files=["res://.godot/imported/ability_blood_spike_sheet.png-d09d498bf003b888ee852c6acf66931a.ctex"]
 
 [params]
 

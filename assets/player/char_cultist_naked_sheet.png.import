@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqhud1s6juu1j"
-path="res://.godot/imported/tile_wall1.png-6509f0dabfbea9c2f052e55c2ebc281c.ctex"
+uid="uid://gbmir5f6hx2s"
+path="res://.godot/imported/char_cultist_naked_sheet.png-6dcb79e2e4ba6f90811d9b8a0d5631b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tile_wall1.png"
-dest_files=["res://.godot/imported/tile_wall1.png-6509f0dabfbea9c2f052e55c2ebc281c.ctex"]
+source_file="res://assets/player/char_cultist_naked_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_sheet.png-6dcb79e2e4ba6f90811d9b8a0d5631b9.ctex"]
 
 [params]
 
