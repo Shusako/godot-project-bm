@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://1r0g3gqsbcla"]
+
+[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="1_fjvay"]
+[ext_resource type="PackedScene" uid="uid://cvkeog3h6kyxk" path="res://assets/actor/ai/BasicAI.tscn" id="2_s4di8"]
+[ext_resource type="Texture2D" uid="uid://bcbnds21jk6em" path="res://assets/enemies/guard1/char_guard1_sheet.png" id="3_ive7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugelm"]
+size = Vector2(20, 26)
+
+[sub_resource type="Animation" id="Animation_eum08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e8l4b"]
+resource_name = "walk"
+length = 1.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njany"]
+_data = {
+"RESET": SubResource("Animation_eum08"),
+"walk": SubResource("Animation_e8l4b")
+}
+
+[node name="guard1" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Actor" parent="." instance=ExtResource("1_fjvay")]
+attackRange = 30.0
+
+[node name="BasicAi" parent="Actor" instance=ExtResource("2_s4di8")]
+speed = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_ugelm")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Visuals"]
+visible = false
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+z_index = 2
+position = Vector2(0, -13)
+texture = ExtResource("3_ive7o")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_njany")
+}
+autoplay = "walk"
