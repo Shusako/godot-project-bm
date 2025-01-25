@@ -1,11 +1,7 @@
 extends Node
 
-var actor: Actor
+@onready var actor: Actor = get_parent() as Actor
 @export var speed: float = 15
-
-func _ready() -> void:
-	print(get_parent() is Actor)
-	actor = get_parent() as Actor
 
 func _physics_process(delta: float) -> void:
 	actor.physicsBody.angular_velocity = 0

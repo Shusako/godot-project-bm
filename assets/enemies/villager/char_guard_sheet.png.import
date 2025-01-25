@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lqy1lyq2sbgf"
-path="res://.godot/imported/ability_blood_spike_sheet.png-621da9b02d2ad9f0aa66b73bea40e858.ctex"
+uid="uid://bcbnds21jk6em"
+path="res://.godot/imported/char_guard_sheet.png-ff405490d24437f9135c6635a1c986d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_blood_spike_sheet.png"
-dest_files=["res://.godot/imported/ability_blood_spike_sheet.png-621da9b02d2ad9f0aa66b73bea40e858.ctex"]
+source_file="res://assets/enemies/villager/char_guard_sheet.png"
+dest_files=["res://.godot/imported/char_guard_sheet.png-ff405490d24437f9135c6635a1c986d6.ctex"]
 
 [params]
 
