@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lqy1lyq2sbgf"
-path="res://.godot/imported/ability_blood_spike_sheet.png-621da9b02d2ad9f0aa66b73bea40e858.ctex"
+uid="uid://dfy2h0a2qt2c"
+path="res://.godot/imported/item_exp_orb.png-261f13f17a798ece48d73795683710ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_blood_spike_sheet.png"
-dest_files=["res://.godot/imported/ability_blood_spike_sheet.png-621da9b02d2ad9f0aa66b73bea40e858.ctex"]
+source_file="res://assets/items/item_exp_orb.png"
+dest_files=["res://.godot/imported/item_exp_orb.png-261f13f17a798ece48d73795683710ea.ctex"]
 
 [params]
 
