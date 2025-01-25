@@ -24,9 +24,6 @@ class_name Actor
 func _ready() -> void:	
 	add_to_group("actor")
 	
-	hp_bar_background.visible = shouldShowHealthbar
-	hp_bar_health.visible = shouldShowHealthbar
-	
 	attack_circle.shape.radius = attackRange
 	hurt_circle.shape.radius = hurtRange
 	
@@ -47,6 +44,10 @@ func damage(amount: float):
 		
 func die():
 	get_parent().queue_free()
+
+func _process(delta: float) -> void:
+	hp_bar_background.visible = shouldShowHealthbar
+	hp_bar_health.visible = shouldShowHealthbar
 
 func _physics_process(delta: float) -> void:	
 	if attackRange != 0:
