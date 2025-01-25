@@ -1,21 +1,113 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv1esximyq2bf"]
+[gd_scene load_steps=9 format=3 uid="uid://dv1esximyq2bf"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
+[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
+[ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
+[ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/char_cultist_naked_sheet.png" id="3_r41l1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
-size = Vector2(28, 35)
+size = Vector2(12, 17)
+
+[sub_resource type="Animation" id="Animation_bv24v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stab self:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blood circle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gjkkf"]
+resource_name = "Stab self"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stab self:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1, 1.33333, 1.66667, 2, 2.33333, 2.66667, 3, 3.33333, 3.66667, 4, 4.33333, 4.66667, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blood circle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1, 1.33333, 1.66667, 2, 2.33333, 2.66667, 3, 3.33333, 3.66667, 4, 4.33333, 4.66667, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o62r7"]
+_data = {
+"RESET": SubResource("Animation_bv24v"),
+"Stab self": SubResource("Animation_gjkkf")
+}
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 2
 script = ExtResource("1_n3ib5")
 SPEED = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_scc6a")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -14.0
-offset_top = -35.0
-offset_right = 14.0
-color = Color(0.731839, 0.000416524, 0.733583, 1)
+[node name="Actor" parent="." instance=ExtResource("2_lqab5")]
+team = 1
+attackDamage = 0.0
+attackRange = 0.0
+
+[node name="Visuals" type="Node2D" parent="."]
+physics_interpolation_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../Spawn")
+libraries = {
+"": SubResource("AnimationLibrary_o62r7")
+}
+autoplay = "RESET"
+
+[node name="hitbox visual" type="ColorRect" parent="Visuals"]
+visible = false
+offset_left = -6.0
+offset_top = -17.0
+offset_right = 6.0
+
+[node name="Spawn" type="Node2D" parent="Visuals"]
+
+[node name="Blood circle" type="Sprite2D" parent="Visuals/Spawn"]
+position = Vector2(0, -13)
+texture = ExtResource("3_c8mxf")
+hframes = 18
+
+[node name="Stab self" type="Sprite2D" parent="Visuals/Spawn"]
+position = Vector2(0, -13)
+texture = ExtResource("3_r41l1")
+hframes = 18

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bklpg6a2374de"
-path="res://.godot/imported/char_villager1_sheet.png-113ad8cd6091ac76e2e9cc0f06066325.ctex"
+uid="uid://bcbnds21jk6em"
+path="res://.godot/imported/char_guard1_sheet.png-ba3553aa4421eb24bac638ef67274500.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/villager/char_villager1_sheet.png"
-dest_files=["res://.godot/imported/char_villager1_sheet.png-113ad8cd6091ac76e2e9cc0f06066325.ctex"]
+source_file="res://assets/enemies/guard1/char_guard1_sheet.png"
+dest_files=["res://.godot/imported/char_guard1_sheet.png-ba3553aa4421eb24bac638ef67274500.ctex"]
 
 [params]
 

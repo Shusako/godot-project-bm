@@ -1,14 +1,86 @@
-[gd_scene load_steps=4 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=10 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
 [ext_resource type="TileSet" uid="uid://c5v1eftv4tm7s" path="res://assets/tilemap/tileset.tres" id="3_y6f0w"]
+[ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
+[ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
+[ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
+
+[sub_resource type="Animation" id="Animation_vmehq"]
+resource_name = "startup"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-5.96046e-08, 1, 5.96667, 6.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.49, 2.49), Vector2(2.49, 2.49), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 6.93333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playStabAnimation"
+}, {
+"args": [],
+"method": &"onStabFinished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_avx41"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dann"]
+_data = {
+"RESET": SubResource("Animation_avx41"),
+"startup": SubResource("Animation_vmehq")
+}
 
 [node name="Test" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ctdg3")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5dann")
+}
+autoplay = "startup"
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_d8bd8")
@@ -20,3 +92,18 @@ tile_set = ExtResource("3_y6f0w")
 [node name="CollisionLayer" type="TileMapLayer" parent="World"]
 tile_map_data = PackedByteArray("AAACAP3/AAABAAAAAAABAAMAAAABAAAAAAD9/wMAAAABAAAAAAD8//v/AAACAAAAAAD9//v/AAADAAAAAAD+//v/AAADAAAAAAD///v/AAADAAAAAAAAAPv/AAAEAAAAAAA=")
 tile_set = ExtResource("3_y6f0w")
+
+[node name="Player" parent="." instance=ExtResource("1_ctdg3")]
+SPEED = 100.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="villager1" parent="." instance=ExtResource("4_6wojp")]
+position = Vector2(-277, -64)
+
+[node name="villager2" parent="." instance=ExtResource("5_qkrh0")]
+position = Vector2(-1, -209)
+
+[node name="guard1" parent="." instance=ExtResource("6_2hnjy")]
+position = Vector2(264, -51)
