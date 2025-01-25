@@ -8,6 +8,32 @@
 [ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
 [ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
 
+[sub_resource type="Animation" id="Animation_avx41"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_vmehq"]
 resource_name = "startup"
 length = 7.0
@@ -39,32 +65,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"onStabFinished"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_avx41"]
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:zoom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dann"]
