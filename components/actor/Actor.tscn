@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://eiggy1ciolum"]
+
+[ext_resource type="Script" path="res://components/actor/actor.gd" id="1_lijcd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d32wc"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aaejv"]
+resource_local_to_scene = true
+
+[node name="Actor" type="Node2D"]
+script = ExtResource("1_lijcd")
+
+[node name="HPBarBackground" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 7.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="HPBarHealth" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 7.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+
+[node name="HurtCircle" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_d32wc")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 64
+collision_mask = 32
+
+[node name="AttackCircle" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_aaejv")

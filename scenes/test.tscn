@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=7 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
 [ext_resource type="TileSet" uid="uid://c5v1eftv4tm7s" path="res://assets/tilemap/tileset.tres" id="3_y6f0w"]
+[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://components/actor/Actor.tscn" id="4_m7tit"]
+[ext_resource type="PackedScene" uid="uid://cvkeog3h6kyxk" path="res://components/actor/ai/BasicAI.tscn" id="5_p5wxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1r8m"]
+size = Vector2(20, 26)
 
 [node name="Test" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ctdg3")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_d8bd8")
@@ -20,3 +23,29 @@ tile_set = ExtResource("3_y6f0w")
 [node name="CollisionLayer" type="TileMapLayer" parent="World"]
 tile_map_data = PackedByteArray("AAACAP3/AAABAAAAAAABAAMAAAABAAAAAAD9/wMAAAABAAAAAAD8//v/AAACAAAAAAD9//v/AAADAAAAAAD+//v/AAADAAAAAAD///v/AAADAAAAAAAAAPv/AAAEAAAAAAA=")
 tile_set = ExtResource("3_y6f0w")
+
+[node name="Actors" type="Node" parent="."]
+
+[node name="Player" parent="Actors" instance=ExtResource("1_ctdg3")]
+SPEED = 100.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Actors/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Enemy" type="RigidBody2D" parent="Actors"]
+position = Vector2(0, -99)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Actor" parent="Actors/Enemy" instance=ExtResource("4_m7tit")]
+
+[node name="BasicAi" parent="Actors/Enemy/Actor" instance=ExtResource("5_p5wxw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Enemy"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_r1r8m")
+
+[node name="ColorRect" type="ColorRect" parent="Actors/Enemy"]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
