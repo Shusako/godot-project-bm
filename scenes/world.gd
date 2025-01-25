@@ -1,7 +1,7 @@
 extends Node
 
 @onready var background_layer: TileMapLayer = $BackgroundLayer
-@onready var player: CharacterBody2D = $"../Actors/Player"
+@onready var player: CharacterBody2D = $"../Player"
 
 func _ready() -> void:
 	pass

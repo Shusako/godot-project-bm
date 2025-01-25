@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv1esximyq2bf"]
+[gd_scene load_steps=10 format=3 uid="uid://dv1esximyq2bf"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
+[ext_resource type="PackedScene" uid="uid://pisqxwtrhp7l" path="res://assets/actor/exp_collector/exp_collector.tscn" id="3_5y8bx"]
 [ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
 [ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/char_cultist_naked_sheet.png" id="3_r41l1"]
 
@@ -69,7 +70,7 @@ _data = {
 "Stab self": SubResource("Animation_gjkkf")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_n3ib5")
@@ -81,8 +82,11 @@ shape = SubResource("RectangleShape2D_scc6a")
 
 [node name="Actor" parent="." instance=ExtResource("2_lqab5")]
 team = 1
-attackDamage = 0.0
-attackRange = 0.0
+attackDamage = 5.0
+attackRange = 50.0
+
+[node name="ExpCollector" parent="Actor" instance=ExtResource("3_5y8bx")]
+collectionRange = 30.0
 
 [node name="Visuals" type="Node2D" parent="."]
 physics_interpolation_mode = 1
@@ -108,6 +112,7 @@ texture = ExtResource("3_c8mxf")
 hframes = 18
 
 [node name="Stab self" type="Sprite2D" parent="Visuals/Spawn"]
+z_index = 3
 position = Vector2(0, -13)
 texture = ExtResource("3_r41l1")
 hframes = 18

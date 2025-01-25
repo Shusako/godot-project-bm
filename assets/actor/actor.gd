@@ -6,6 +6,8 @@ class_name Actor
 @export var maxHealth: float = 100
 @export var shouldShowHealthbar: bool = false
 
+@export var xpAmount: int = 1
+
 @export var attackDamage: float = 1
 @export var attackRange: float = 15
 @export var hurtRange: float = 15
@@ -21,9 +23,9 @@ class_name Actor
 
 @onready var physicsBody: PhysicsBody2D = get_parent() as PhysicsBody2D
 
+const EXP_ORB = preload("res://assets/items/exp_orb/exp_orb.tscn")
+
 func _ready() -> void:	
-	add_to_group("actor")
-	
 	attack_circle.shape.radius = attackRange
 	hurt_circle.shape.radius = hurtRange
 	
@@ -31,6 +33,9 @@ func _ready() -> void:
 		attack_area.monitoring = false
 		attack_area.monitorable = false
 	
+
+func gainExp(amount: float):
+	pass
 
 func damage(amount: float):
 	health -= amount
@@ -43,6 +48,14 @@ func damage(amount: float):
 		die()
 		
 func die():
+	# drop exp
+	for i in range(xpAmount):
+		var exp = EXP_ORB.instantiate()
+		var angle = randf() * 2 * PI
+		# small random offset
+		exp.global_position = self.global_position + Vector2(cos(angle), sin(angle))
+		get_tree().root.add_child(exp)
+	
 	get_parent().queue_free()
 
 func _process(delta: float) -> void:

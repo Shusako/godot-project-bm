@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=11 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
 [ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
 [ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
+[ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
 
 [sub_resource type="Animation" id="Animation_vmehq"]
 resource_name = "startup"
@@ -107,3 +108,185 @@ position = Vector2(-1, -209)
 
 [node name="guard1" parent="." instance=ExtResource("6_2hnjy")]
 position = Vector2(264, -51)
+
+[node name="XP" type="Node" parent="."]
+
+[node name="ExpBody" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody2" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody3" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody4" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody5" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody6" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody7" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody8" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody9" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody10" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody11" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 49)
+
+[node name="ExpBody12" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody13" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody14" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody15" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody16" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody17" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody18" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody19" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody20" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody21" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 49)
+
+[node name="ExpBody22" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody23" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody24" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody25" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody26" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody27" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody28" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody29" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody30" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody31" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody32" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody33" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody34" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody35" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody36" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody37" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody38" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody39" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody40" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody41" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody42" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody43" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody44" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody45" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody46" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody47" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody48" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody49" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody50" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody51" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody52" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody53" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody54" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-69, 47)
+
+[node name="ExpBody55" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody56" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody57" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody58" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-75, 49)
+
+[node name="ExpBody59" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)
+
+[node name="ExpBody60" parent="XP" instance=ExtResource("7_wv635")]
+position = Vector2(-72, 47)

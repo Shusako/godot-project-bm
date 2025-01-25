@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://saa7m4wckgpa"]
+
+[ext_resource type="Texture2D" uid="uid://dehdp83i3emtk" path="res://assets/items/exp_orb/item_exp_orb.png" id="1_b0kx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgjuk"]
+radius = 2.0
+
+[node name="ExpBody" type="RigidBody2D" groups=["exp"]]
+collision_layer = 8
+collision_mask = 8
+linear_damp = 1.052
+angular_damp = 18.225
+
+[node name="ExpOrb" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_b0kx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hgjuk")
