@@ -22,7 +22,9 @@ shouldShowHealthbar = true
 attackDamage = 0.0
 attackRange = 0.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Visuals"]
 offset_left = -10.0
 offset_top = -26.0
 offset_right = 10.0
