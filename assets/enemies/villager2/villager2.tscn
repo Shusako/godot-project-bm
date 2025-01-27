@@ -50,7 +50,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Actor" parent="." instance=ExtResource("1_ehmoo")]
-xpAmount = 2
+expAmount = 2
 attackDamage = 0.6
 attackRange = 30.0
 

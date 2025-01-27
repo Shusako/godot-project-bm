@@ -2,7 +2,7 @@ extends Node2D
 
 @export var collectionRange: float = 50
 var absorbRange: float = 8
-var expSpeed: float = 50
+var expSpeed: float = 80
 @onready var collector: Actor = get_parent() as Actor
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +15,11 @@ func _physics_process(delta: float) -> void:
 	
 	for exp_node in nearbyExp:
 		var vectorToPlayer = (collectorPosition - exp_node.global_position).normalized()
-		exp_node.linear_velocity = vectorToPlayer * expSpeed
+		
+		var notTowardsPlayer = (exp_node.position + exp_node.linear_velocity) - collectorPosition
+		exp_node.linear_velocity -= notTowardsPlayer
+		
+		exp_node.linear_velocity += vectorToPlayer * expSpeed
 		
 		if exp_node.global_position.distance_to(collectorPosition) < absorbRange:
 			collector.gainExp(1)
