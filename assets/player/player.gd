@@ -4,10 +4,9 @@ extends CharacterBody2D
 
 @onready var animation_tree: AnimationTree = $Visuals/AnimationTree
 var direction: Vector2 = Vector2.ZERO
-var stabbing: bool
 
-func inCutscene() -> bool:
-	return stabbing
+var inCutscene: bool
+var stabbing: bool
 
 func _process(delta: float) -> void:	
 	updateAnimationTree()
@@ -25,12 +24,12 @@ func updateAnimationTree():
 		idle = false
 		moving = true
 	
-	animation_tree["parameters/conditions/idle"] = idle && !inCutscene()
+	animation_tree["parameters/conditions/idle"] = idle && !inCutscene
 	animation_tree["parameters/conditions/moving"] = moving
 	animation_tree["parameters/conditions/stabbing"] = stabbing
 
 func _physics_process(delta: float) -> void:
-	if !inCutscene():
+	if !inCutscene:
 		direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		self.velocity = SPEED * direction
 		
@@ -39,7 +38,9 @@ func _physics_process(delta: float) -> void:
 func playStabAnimation():
 	stabbing = true
 	$Visuals/AnimationPlayer.play("Stab self")
-	
+
+func setInCutscene(flag: bool):
+	inCutscene = true
 
 func onStabFinished():
 	stabbing = false

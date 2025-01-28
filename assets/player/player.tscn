@@ -316,8 +316,8 @@ shape = SubResource("RectangleShape2D_scc6a")
 
 [node name="Actor" parent="." instance=ExtResource("2_lqab5")]
 team = 1
-attackDamage = 0.0
-attackRange = 0.0
+attackDamage = 50.0
+attackRange = 50.0
 
 [node name="ExpCollector" parent="Actor" instance=ExtResource("3_5y8bx")]
 collectionRange = 30.0
