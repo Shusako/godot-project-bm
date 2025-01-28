@@ -40,7 +40,7 @@ func playStabAnimation():
 	$Visuals/AnimationPlayer.play("Stab self")
 
 func setInCutscene(flag: bool):
-	inCutscene = true
+	inCutscene = flag
 
 func onStabFinished():
 	stabbing = false
