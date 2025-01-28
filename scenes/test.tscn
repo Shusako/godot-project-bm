@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=16 format=4 uid="uid://davsqutqqvowt"]
 
+[ext_resource type="Script" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
+[ext_resource type="Script" path="res://assets/enemy_spawner/spawnable_enemy.gd" id="2_uks28"]
 [ext_resource type="TileSet" uid="uid://c5v1eftv4tm7s" path="res://assets/tilemap/tileset.tres" id="3_y6f0w"]
 [ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
 [ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
@@ -73,15 +75,39 @@ _data = {
 "startup": SubResource("Animation_vmehq")
 }
 
+[sub_resource type="Resource" id="Resource_7rlp0"]
+script = ExtResource("2_uks28")
+scene = ExtResource("4_6wojp")
+earliestSpawnTime = 0.0
+rarity = 0.0
+
+[sub_resource type="Resource" id="Resource_47sbd"]
+script = ExtResource("2_uks28")
+scene = ExtResource("5_qkrh0")
+earliestSpawnTime = 0.0
+rarity = 0.497
+
+[sub_resource type="Resource" id="Resource_wnaoo"]
+script = ExtResource("2_uks28")
+scene = ExtResource("6_2hnjy")
+earliestSpawnTime = 1.0
+rarity = 0.0
+
 [node name="Test" type="Node2D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Intro Cutscene" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5dann")
 }
 autoplay = "startup"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="EnemySpawner" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+script = ExtResource("1_3vhc0")
+spawnableEnemies = Array[ExtResource("2_uks28")]([SubResource("Resource_7rlp0"), SubResource("Resource_47sbd"), SubResource("Resource_wnaoo")])
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_d8bd8")
@@ -95,7 +121,7 @@ tile_map_data = PackedByteArray("AAACAP3/AAABAAAAAAABAAMAAAABAAAAAAD9/wMAAAABAAA
 tile_set = ExtResource("3_y6f0w")
 
 [node name="Player" parent="." instance=ExtResource("1_ctdg3")]
-SPEED = 100.0
+physics_interpolation_mode = 1
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
