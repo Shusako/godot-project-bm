@@ -1,13 +1,73 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv1esximyq2bf"]
+[gd_scene load_steps=27 format=3 uid="uid://dv1esximyq2bf"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
 [ext_resource type="PackedScene" uid="uid://pisqxwtrhp7l" path="res://assets/actor/exp_collector/exp_collector.tscn" id="3_5y8bx"]
 [ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
 [ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/char_cultist_naked_sheet.png" id="3_r41l1"]
+[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
 size = Vector2(12, 17)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hcbc5"]
+animation = &"Stab self"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nw34l"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skxrx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_2pdbg"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_nw34l")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_skxrx")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qv2rr"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3klds"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wttgu"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_qv2rr")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_3klds")
+blend_point_1/pos = 1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1oern"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fsa7n"]
+advance_mode = 2
+advance_condition = &"stabbing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l4d7b"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4wl6"]
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a5gbw"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_j5ge8"]
+states/End/position = Vector2(900.8, 127.84)
+"states/Stab self/node" = SubResource("AnimationNodeAnimation_hcbc5")
+"states/Stab self/position" = Vector2(353.115, 45)
+states/Start/position = Vector2(198.4, 126.4)
+states/idle/node = SubResource("AnimationNodeBlendSpace1D_2pdbg")
+states/idle/position = Vector2(352.744, 125.8)
+states/walk/node = SubResource("AnimationNodeBlendSpace1D_wttgu")
+states/walk/position = Vector2(567.4, 128.142)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1oern"), "idle", "Stab self", SubResource("AnimationNodeStateMachineTransition_fsa7n"), "Stab self", "idle", SubResource("AnimationNodeStateMachineTransition_l4d7b"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_m4wl6"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_a5gbw")]
+graph_offset = Vector2(6, -3)
 
 [sub_resource type="Animation" id="Animation_bv24v"]
 length = 0.001
@@ -26,14 +86,74 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Blood circle:frame")
+tracks/1/path = NodePath("Stab self:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stab self:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Standing/Walk:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Standing/Walk:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Blood circle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Standing/Walk:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gjkkf"]
@@ -63,11 +183,149 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stab self:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blood circle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xix2s"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Standing/Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Standing/Walk:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ali4o"]
+resource_name = "walk_right"
+length = 1.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Standing/Walk:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Standing/Walk:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Standing/Walk:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mub4r"]
+resource_name = "walk_left"
+length = 1.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Standing/Walk:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Standing/Walk:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Standing/Walk:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.466516),
+"update": 1,
+"values": [Vector2(-1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o62r7"]
 _data = {
 "RESET": SubResource("Animation_bv24v"),
-"Stab self": SubResource("Animation_gjkkf")
+"Stab self": SubResource("Animation_gjkkf"),
+"idle": SubResource("Animation_xix2s"),
+"walk_left": SubResource("Animation_mub4r"),
+"walk_right": SubResource("Animation_ali4o")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -91,8 +349,18 @@ collectionRange = 30.0
 [node name="Visuals" type="Node2D" parent="."]
 physics_interpolation_mode = 1
 
+[node name="AnimationTree" type="AnimationTree" parent="Visuals"]
+root_node = NodePath("../Stab self")
+tree_root = SubResource("AnimationNodeStateMachine_j5ge8")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/idle = true
+parameters/conditions/moving = false
+parameters/conditions/stabbing = false
+parameters/idle/blend_position = 0
+parameters/walk/blend_position = 0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
-root_node = NodePath("../Spawn")
+root_node = NodePath("../Stab self")
 libraries = {
 "": SubResource("AnimationLibrary_o62r7")
 }
@@ -104,15 +372,25 @@ offset_left = -6.0
 offset_top = -17.0
 offset_right = 6.0
 
-[node name="Spawn" type="Node2D" parent="Visuals"]
+[node name="Stab self" type="Node2D" parent="Visuals"]
 
-[node name="Blood circle" type="Sprite2D" parent="Visuals/Spawn"]
+[node name="Blood circle" type="Sprite2D" parent="Visuals/Stab self"]
+visible = false
 position = Vector2(0, -13)
 texture = ExtResource("3_c8mxf")
 hframes = 18
 
-[node name="Stab self" type="Sprite2D" parent="Visuals/Spawn"]
+[node name="Stab self" type="Sprite2D" parent="Visuals/Stab self"]
+visible = false
 z_index = 3
 position = Vector2(0, -13)
 texture = ExtResource("3_r41l1")
 hframes = 18
+
+[node name="Standing" type="Node2D" parent="Visuals"]
+
+[node name="Walk" type="Sprite2D" parent="Visuals/Standing"]
+visible = false
+position = Vector2(0, -13)
+texture = ExtResource("6_ttmwh")
+hframes = 4

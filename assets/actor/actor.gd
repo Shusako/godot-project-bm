@@ -6,7 +6,8 @@ class_name Actor
 @export var maxHealth: float = 100
 @export var shouldShowHealthbar: bool = false
 
-@export var xpAmount: int = 1
+@export var expAmount: int = 1
+var currentExp: int = 0
 
 @export var attackDamage: float = 1
 @export var attackRange: float = 15
@@ -49,12 +50,12 @@ func damage(amount: float):
 		
 func die():
 	# drop exp
-	for i in range(xpAmount):
-		var exp = EXP_ORB.instantiate()
+	for i in range(expAmount):
+		var expNode = EXP_ORB.instantiate()
 		var angle = randf() * 2 * PI
 		# small random offset
-		exp.global_position = self.global_position + Vector2(cos(angle), sin(angle))
-		get_tree().root.add_child(exp)
+		expNode.global_position = self.global_position + Vector2(cos(angle), sin(angle))
+		get_tree().root.add_child(expNode)
 	
 	get_parent().queue_free()
 
