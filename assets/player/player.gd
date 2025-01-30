@@ -40,11 +40,11 @@ func playStabAnimation():
 	$Visuals/AnimationPlayer.play("Stab self")
 
 func setInCutscene(flag: bool):
+	$Actor/Bars.setBarVisibility(!flag)
 	inCutscene = flag
 
 func onStabFinished():
 	stabbing = false
-	$Actor.shouldShowBars = true
 	
 	var circle = $"Visuals/Stab self/Blood circle" as Sprite2D
 	var frame = circle.frame

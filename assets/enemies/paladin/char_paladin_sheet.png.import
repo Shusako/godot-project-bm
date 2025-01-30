@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3kb2gjwe7xgk"
-path="res://.godot/imported/char_paladin_sheet.png-cb3371ccbc297f4c6f496eb04fa78a01.ctex"
+path="res://.godot/imported/char_paladin_sheet.png-4b664751b609bd4a2a801248acbd108e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/paladin/char_paladin_sheet.png"
-dest_files=["res://.godot/imported/char_paladin_sheet.png-cb3371ccbc297f4c6f496eb04fa78a01.ctex"]
+source_file="res://assets/enemies/Paladin/char_paladin_sheet.png"
+dest_files=["res://.godot/imported/char_paladin_sheet.png-4b664751b609bd4a2a801248acbd108e.ctex"]
 
 [params]
 

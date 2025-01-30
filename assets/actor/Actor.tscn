@@ -11,31 +11,6 @@ resource_local_to_scene = true
 [node name="Actor" type="Node2D" groups=["actor"]]
 script = ExtResource("1_lijcd")
 
-[node name="HPBarBackground" type="ColorRect" parent="."]
-z_index = 2
-offset_left = -21.0
-offset_right = 21.0
-offset_bottom = 8.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-color = Color(0, 0, 0, 1)
-
-[node name="HPBarHealth" type="ColorRect" parent="."]
-z_index = 2
-offset_left = -20.0
-offset_top = 1.0
-offset_right = 20.0
-offset_bottom = 4.0
-color = Color(1, 0, 0, 1)
-
-[node name="ExpBar" type="ColorRect" parent="."]
-z_index = 3
-offset_left = -20.0
-offset_top = 4.0
-offset_right = -20.0
-offset_bottom = 7.0
-color = Color(0.631238, 0.343144, 1, 1)
-
 [node name="HurtArea" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 64
