@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhd5gmn5vh0ph"
-path="res://.godot/imported/ability_chimera_goat_sheet_48x48.png-1839b0e1022f608eeba3b57adb862712.ctex"
+path="res://.godot/imported/ability_chimera_goat_sheet_48x48.png-24ecb0dee32d9d8541edbe1ccf976a10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_chimera_goat_sheet_48x48.png"
-dest_files=["res://.godot/imported/ability_chimera_goat_sheet_48x48.png-1839b0e1022f608eeba3b57adb862712.ctex"]
+source_file="res://assets/enemies/chimera/abilities/ability_chimera_goat_sheet_48x48.png"
+dest_files=["res://.godot/imported/ability_chimera_goat_sheet_48x48.png-24ecb0dee32d9d8541edbe1ccf976a10.ctex"]
 
 [params]
 

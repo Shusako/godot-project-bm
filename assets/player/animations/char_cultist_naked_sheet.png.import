@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gbmir5f6hx2s"
-path="res://.godot/imported/char_cultist_naked_sheet.png-6dcb79e2e4ba6f90811d9b8a0d5631b9.ctex"
+path="res://.godot/imported/char_cultist_naked_sheet.png-eed021b5cc68a32f51c99e05f25cffb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/char_cultist_naked_sheet.png"
-dest_files=["res://.godot/imported/char_cultist_naked_sheet.png-6dcb79e2e4ba6f90811d9b8a0d5631b9.ctex"]
+source_file="res://assets/player/animations/char_cultist_naked_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_sheet.png-eed021b5cc68a32f51c99e05f25cffb0.ctex"]
 
 [params]
 

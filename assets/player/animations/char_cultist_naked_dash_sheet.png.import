@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chmjnlsphm588"
-path="res://.godot/imported/char_cultist_naked_launchpad_sheet.png-0d5327eb418b0422386a64c06057becd.ctex"
+uid="uid://bttglgi7jj4ae"
+path="res://.godot/imported/char_cultist_naked_dash_sheet.png-1adc37603ff6fb1d1551876000fd60fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/char_cultist_naked_launchpad_sheet.png"
-dest_files=["res://.godot/imported/char_cultist_naked_launchpad_sheet.png-0d5327eb418b0422386a64c06057becd.ctex"]
+source_file="res://assets/player/animations/char_cultist_naked_dash_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_dash_sheet.png-1adc37603ff6fb1d1551876000fd60fa.ctex"]
 
 [params]
 

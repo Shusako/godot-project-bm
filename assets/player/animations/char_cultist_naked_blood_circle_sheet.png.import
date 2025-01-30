@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bldhyr2jyealb"
-path="res://.godot/imported/ability_chimera_lion_sheet_48x48.png-1c71add4bfdaecfba99606936e1c22b4.ctex"
+uid="uid://bc8lpelswvhap"
+path="res://.godot/imported/char_cultist_naked_blood_circle_sheet.png-50bf20fc42d1ca841be176eaa8d13bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_chimera_lion_sheet_48x48.png"
-dest_files=["res://.godot/imported/ability_chimera_lion_sheet_48x48.png-1c71add4bfdaecfba99606936e1c22b4.ctex"]
+source_file="res://assets/player/animations/char_cultist_naked_blood_circle_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_blood_circle_sheet.png-50bf20fc42d1ca841be176eaa8d13bd0.ctex"]
 
 [params]
 

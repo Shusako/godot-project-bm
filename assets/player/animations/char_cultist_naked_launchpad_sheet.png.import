@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djoo4cunj7t6v"
-path="res://.godot/imported/ability_chimera_snake_sheet_48x48.png-caec2501fd07cc0fac1d3089add3eb26.ctex"
+uid="uid://chmjnlsphm588"
+path="res://.godot/imported/char_cultist_naked_launchpad_sheet.png-3cf86136a1601646d0b4d32dfeca6156.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_chimera_snake_sheet_48x48.png"
-dest_files=["res://.godot/imported/ability_chimera_snake_sheet_48x48.png-caec2501fd07cc0fac1d3089add3eb26.ctex"]
+source_file="res://assets/player/animations/char_cultist_naked_launchpad_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_launchpad_sheet.png-3cf86136a1601646d0b4d32dfeca6156.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck0at41ujdpte"
-path="res://.godot/imported/ability_launchpad_landing_sheet_192x96.png-b576a6ad78b2b81acfb774a0cd45113a.ctex"
+uid="uid://d03q467e81na0"
+path="res://.godot/imported/char_cultist_naked_run_sheet.png-e8372bc660b6b679f0ae0432b7238e72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_launchpad_landing_sheet_192x96.png"
-dest_files=["res://.godot/imported/ability_launchpad_landing_sheet_192x96.png-b576a6ad78b2b81acfb774a0cd45113a.ctex"]
+source_file="res://assets/player/animations/char_cultist_naked_run_sheet.png"
+dest_files=["res://.godot/imported/char_cultist_naked_run_sheet.png-e8372bc660b6b679f0ae0432b7238e72.ctex"]
 
 [params]
 

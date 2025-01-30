@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2727v2sln77b"
-path="res://.godot/imported/ability_paladin_holy_light_sheet_48x96.png-baf34052609c0bc7bfed9bd77d577735.ctex"
+uid="uid://djoo4cunj7t6v"
+path="res://.godot/imported/ability_chimera_snake_sheet_48x48.png-ec27662484590db7999ec5e2f13c4fa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_paladin_holy_light_sheet_48x96.png"
-dest_files=["res://.godot/imported/ability_paladin_holy_light_sheet_48x96.png-baf34052609c0bc7bfed9bd77d577735.ctex"]
+source_file="res://assets/enemies/chimera/abilities/ability_chimera_snake_sheet_48x48.png"
+dest_files=["res://.godot/imported/ability_chimera_snake_sheet_48x48.png-ec27662484590db7999ec5e2f13c4fa2.ctex"]
 
 [params]
 
