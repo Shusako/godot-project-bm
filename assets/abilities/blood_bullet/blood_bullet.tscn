@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bimnfl843hvog"]
+
+[ext_resource type="Texture2D" uid="uid://b45kjwfqrdwb1" path="res://assets/abilities/blood_bullet/ability_blood_bullet_sheet.png" id="1_0kns1"]
+[ext_resource type="Script" path="res://assets/abilities/blood_bullet/blood_bullet.gd" id="1_pyrwe"]
+
+[sub_resource type="Animation" id="Animation_q0yq3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dni5c"]
+resource_name = "blood_bullet"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qse64"]
+_data = {
+"RESET": SubResource("Animation_q0yq3"),
+"blood_bullet": SubResource("Animation_dni5c")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1865h"]
+radius = 3.0
+
+[node name="BloodBullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 4
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_pyrwe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qse64")
+}
+autoplay = "blood_bullet"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 9
+position = Vector2(0, 1)
+texture = ExtResource("1_0kns1")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1865h")

@@ -50,6 +50,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Actor" parent="." instance=ExtResource("1_fjvay")]
+maxHealth = 350.0
 expWorth = 5
 attackRange = 30.0
 

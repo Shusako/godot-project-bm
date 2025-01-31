@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=18 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="Script" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
 [ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
 [ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
+[ext_resource type="Script" path="res://assets/ability_tracker/ability_tracker.gd" id="6_g35pl"]
 [ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
 
 [sub_resource type="Animation" id="Animation_avx41"]
@@ -110,13 +111,16 @@ scene = ExtResource("6_2hnjy")
 earliestSpawnTime = 1.0
 rarity = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r075b"]
+size = Vector2(640, 360)
+
 [node name="Test" type="Node2D"]
 
 [node name="Intro Cutscene" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5dann")
 }
-autoplay = "startup"
+autoplay = "RESET"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -125,6 +129,13 @@ process_callback = 0
 autostart = true
 script = ExtResource("1_3vhc0")
 spawnableEnemies = Array[ExtResource("2_uks28")]([SubResource("Resource_7rlp0"), SubResource("Resource_47sbd"), SubResource("Resource_wnaoo")])
+spawnRadius = 200.0
+
+[node name="AbilityTracker" type="Timer" parent="." node_paths=PackedStringArray("nearbyArea")]
+wait_time = 0.1
+autostart = true
+script = ExtResource("6_g35pl")
+nearbyArea = NodePath("../Player/Area2D")
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_d8bd8")
@@ -142,6 +153,13 @@ physics_interpolation_mode = 1
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("RectangleShape2D_r075b")
 
 [node name="XP" type="Node" parent="."]
 

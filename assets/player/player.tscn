@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
 [ext_resource type="PackedScene" uid="uid://pisqxwtrhp7l" path="res://assets/actor/exp_collector/exp_collector.tscn" id="3_5y8bx"]
-[ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
-[ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/char_cultist_naked_sheet.png" id="3_r41l1"]
+[ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/animations/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
+[ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/animations/char_cultist_naked_sheet.png" id="3_r41l1"]
 [ext_resource type="PackedScene" uid="uid://csvwe3un73egg" path="res://assets/actor/bars/bars.tscn" id="4_b0m7m"]
-[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
+[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
 size = Vector2(12, 17)

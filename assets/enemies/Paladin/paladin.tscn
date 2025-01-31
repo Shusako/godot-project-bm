@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfo0tg0k065wl"]
+[gd_scene load_steps=8 format=3 uid="uid://bwsqpbjlq3a4p"]
 
-[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="1_ehmoo"]
-[ext_resource type="PackedScene" uid="uid://cvkeog3h6kyxk" path="res://assets/actor/ai/BasicAI.tscn" id="2_pteaw"]
-[ext_resource type="Texture2D" uid="uid://23wvuansbc8y" path="res://assets/enemies/villager2/char_villager2_sheet.png" id="3_s2rbs"]
+[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="1_oq8m8"]
+[ext_resource type="PackedScene" uid="uid://cvkeog3h6kyxk" path="res://assets/actor/ai/BasicAI.tscn" id="2_jm1mp"]
+[ext_resource type="Texture2D" uid="uid://bklpg6a2374de" path="res://assets/enemies/villager1/char_villager1_sheet.png" id="3_d77ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugelm"]
 size = Vector2(20, 26)
@@ -45,18 +45,14 @@ _data = {
 "walk": SubResource("Animation_e8l4b")
 }
 
-[node name="villager2" type="RigidBody2D"]
+[node name="villager1" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="Actor" parent="." instance=ExtResource("1_ehmoo")]
-maxHealth = 150.0
-expWorth = 2
-attackDamage = 0.6
-attackRange = 30.0
+[node name="Actor" parent="." instance=ExtResource("1_oq8m8")]
+attackDamage = 0.3
 
-[node name="BasicAi" parent="Actor" instance=ExtResource("2_pteaw")]
-speed = 17.0
+[node name="BasicAi" parent="Actor" instance=ExtResource("2_jm1mp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
@@ -73,7 +69,7 @@ offset_right = 20.0
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 z_index = 2
 position = Vector2(0, -13)
-texture = ExtResource("3_s2rbs")
+texture = ExtResource("3_d77ry")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
