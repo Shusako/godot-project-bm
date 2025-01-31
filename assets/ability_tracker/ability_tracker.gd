@@ -4,6 +4,7 @@ const BLOOD_BULLET = preload("res://assets/abilities/blood_bullet/blood_bullet.t
 
 @export var nearbyArea: Area2D
 
+var bloodBulletCost = 1
 var bloodBulletCooldown = 10
 var bloodBulletCounter = bloodBulletCooldown
 var bloodBulletSpeed = 125
@@ -17,6 +18,7 @@ func _on_timeout() -> void:
 		return
 	
 	var player = players[0]
+	var playerActor = player.get_node("Actor") as Actor
 	
 	var enemies = (nearbyArea.get_overlapping_bodies() as Array[RigidBody2D]).filter(
 		func(node): 
@@ -35,7 +37,9 @@ func _on_timeout() -> void:
 	
 	# Check blood bullet
 	bloodBulletCounter -= 1
-	if bloodBulletCounter <= 0:
+	if bloodBulletCounter <= 0 and playerActor.health > bloodBulletCost:
+		playerActor.damage(bloodBulletCost) # pay the blood price
+		
 		var bullet = BLOOD_BULLET.instantiate()
 		bullet.global_position = player.global_position
 		bullet.linear_velocity = (closestEnemy.global_position - bullet.global_position).normalized() * bloodBulletSpeed

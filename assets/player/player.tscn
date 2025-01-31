@@ -309,7 +309,7 @@ _data = {
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_n3ib5")
-SPEED = 40.0
+SPEED = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8.5)

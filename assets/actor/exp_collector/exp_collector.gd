@@ -11,6 +11,8 @@ var expToLevelScale: float = 10.0
 var currentExp: float = 0
 var expToNextLevel: float = 0
 
+var expToHpFactor: float = 10
+
 @export var collectionRange: float = 50
 var absorbRange: float = 8
 var expSpeed: float = 80
@@ -46,6 +48,20 @@ func calcExpToNextLevel():
 	expToNextLevel = pow(level, 0.8) * 10
 
 func gainExp(amount: float):
+	# EXP conversion to health first
+	if collector.health != collector.maxHealth:
+		var healthNeeded = collector.maxHealth - collector.health
+		var expNeededForHealth = healthNeeded / expToHpFactor
+		var usableAmount = min(expNeededForHealth, amount)
+		
+		var conversion = usableAmount * expToHpFactor
+		collector.damage(-conversion)
+		
+		amount -= usableAmount
+	
+	if amount == 0:
+		return
+	
 	currentExp += amount
 	
 	# while because we could get a massive amount of Exp at once

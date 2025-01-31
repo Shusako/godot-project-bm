@@ -30,9 +30,11 @@ func _ready() -> void:
 		attack_area.monitoring = false
 		attack_area.monitorable = false
 
+# We accept negative damage
 func damage(amount: float):	
 	health -= amount
 	if health < 0: health = 0
+	if health > maxHealth: health = maxHealth
 	
 	emit_signal("onDamaged", amount, health, maxHealth)
 	
