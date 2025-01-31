@@ -25,9 +25,11 @@ func useAbility():
 
 func spawnHolyLight():
 	# find player and spawn attack on them
-	var playerPosition = get_tree().get_first_node_in_group("player").global_position
+	var player = get_tree().get_first_node_in_group("player")
+	var spawnPosition = player.global_position + player.velocity * 0.5
+	
 	var holyLightNode = HOLY_LIGHT.instantiate()
-	holyLightNode.global_position = playerPosition
+	holyLightNode.global_position = spawnPosition
 	get_tree().root.add_child(holyLightNode)
 
 func _physics_process(delta: float) -> void:

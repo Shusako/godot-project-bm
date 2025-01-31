@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
-size = Vector2(12, 17)
+size = Vector2(12, 8)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hcbc5"]
 animation = &"Stab self"
@@ -312,7 +312,7 @@ script = ExtResource("1_n3ib5")
 SPEED = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_scc6a")
 
 [node name="Actor" parent="." instance=ExtResource("2_lqab5")]
