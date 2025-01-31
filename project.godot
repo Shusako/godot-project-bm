@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Bgm="*res://scenes/bgm.tscn"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
