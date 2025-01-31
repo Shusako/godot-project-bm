@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b45kjwfqrdwb1"
-path="res://.godot/imported/ability_blood_bullet_sheet.png-cac6f7a4dcaef46211d142ba598d679b.ctex"
+uid="uid://cloyb8711svp8"
+path="res://.godot/imported/title_screen_bloody_arsenal.png-c1ca1575dbd97b5590283c6d52fa1373.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ability_blood_bullet_sheet.png"
-dest_files=["res://.godot/imported/ability_blood_bullet_sheet.png-cac6f7a4dcaef46211d142ba598d679b.ctex"]
+source_file="res://scenes/main_menu/title_screen_bloody_arsenal.png"
+dest_files=["res://.godot/imported/title_screen_bloody_arsenal.png-c1ca1575dbd97b5590283c6d52fa1373.ctex"]
 
 [params]
 

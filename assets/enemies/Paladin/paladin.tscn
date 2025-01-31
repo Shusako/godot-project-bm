@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwsqpbjlq3a4p"]
+
+[ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="1_oq8m8"]
+[ext_resource type="Script" path="res://assets/enemies/Paladin/paladin_ai.gd" id="2_dlkuh"]
+[ext_resource type="PackedScene" uid="uid://csvwe3un73egg" path="res://assets/actor/bars/bars.tscn" id="3_jk5vv"]
+[ext_resource type="Texture2D" uid="uid://3kb2gjwe7xgk" path="res://assets/enemies/Paladin/char_paladin_sheet.png" id="4_xvkdn"]
+[ext_resource type="Texture2D" uid="uid://c5x7p8ybryyn3" path="res://assets/enemies/Paladin/char_paladin_attack1_sheet.png" id="5_pwjns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugelm"]
+size = Vector2(36, 57)
+
+[sub_resource type="Animation" id="Animation_eum08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CastingSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CastingSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fyihl"]
+resource_name = "casting"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CastingSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CastingSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Actor/PaladinAi")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.33333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnHolyLight"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3g01o"]
+resource_name = "stand"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e8l4b"]
+resource_name = "walk"
+length = 1.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njany"]
+_data = {
+"RESET": SubResource("Animation_eum08"),
+"casting": SubResource("Animation_fyihl"),
+"stand": SubResource("Animation_3g01o"),
+"walk": SubResource("Animation_e8l4b")
+}
+
+[node name="Paladin" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Actor" parent="." instance=ExtResource("1_oq8m8")]
+maxHealth = 1500.0
+expWorth = 150
+attackDamage = 1.5
+attackRange = 50.0
+hurtRange = 50.0
+
+[node name="PaladinAi" type="Node" parent="Actor"]
+script = ExtResource("2_dlkuh")
+
+[node name="Bars" parent="Actor" instance=ExtResource("3_jk5vv")]
+enableHealthBar = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -28.5)
+shape = SubResource("RectangleShape2D_ugelm")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Visuals"]
+visible = false
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+z_index = 2
+position = Vector2(10, -30)
+texture = ExtResource("4_xvkdn")
+hframes = 4
+
+[node name="CastingSprite" type="Sprite2D" parent="Visuals"]
+visible = false
+z_index = 2
+position = Vector2(10, -30)
+texture = ExtResource("5_pwjns")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_njany")
+}
+autoplay = "RESET"

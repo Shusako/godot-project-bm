@@ -11,9 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 [ext_resource type="AudioStream" uid="uid://mc8ocgb50p0x" path="res://sound/sfx/drip.mp3" id="7_k1jyp"]
 [ext_resource type="AudioStream" uid="uid://cl71um8clnm41" path="res://sound/sfx/circle.mp3" id="8_1nv13"]
+[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
-size = Vector2(12, 17)
+size = Vector2(12, 8)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hcbc5"]
 animation = &"Stab self"
@@ -351,16 +352,16 @@ _data = {
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_n3ib5")
-SPEED = 40.0
+SPEED = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_scc6a")
 
 [node name="Actor" parent="." instance=ExtResource("2_lqab5")]
 team = 1
-attackDamage = 50.0
-attackRange = 50.0
+attackDamage = 0.0
+attackRange = 0.0
 
 [node name="ExpCollector" parent="Actor" instance=ExtResource("3_5y8bx")]
 collectionRange = 30.0

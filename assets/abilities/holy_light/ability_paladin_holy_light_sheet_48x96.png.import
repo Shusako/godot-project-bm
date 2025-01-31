@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xi17ngf3wsya"
-path="res://.godot/imported/hud_abilities_added.png-289d3a9dedd4719c5289e06e81b6222e.ctex"
+uid="uid://w6hybfbavs0v"
+path="res://.godot/imported/ability_paladin_holy_light_sheet_48x96.png-59a4a402a2a48df91f339e7447b5b458.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/hud_abilities_added.png"
-dest_files=["res://.godot/imported/hud_abilities_added.png-289d3a9dedd4719c5289e06e81b6222e.ctex"]
+source_file="res://assets/abilities/holy_light/ability_paladin_holy_light_sheet_48x96.png"
+dest_files=["res://.godot/imported/ability_paladin_holy_light_sheet_48x96.png-59a4a402a2a48df91f339e7447b5b458.ctex"]
 
 [params]
 

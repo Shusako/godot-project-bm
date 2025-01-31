@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3odtm3od6n3"
-path="res://.godot/imported/hud_level_up.png-0ab3b651674cd89914034cd56e505095.ctex"
+uid="uid://b45kjwfqrdwb1"
+path="res://.godot/imported/ability_blood_bullet_sheet.png-02856a7fb59514236c71017581678b0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/hud_level_up.png"
-dest_files=["res://.godot/imported/hud_level_up.png-0ab3b651674cd89914034cd56e505095.ctex"]
+source_file="res://assets/abilities/blood_bullet/ability_blood_bullet_sheet.png"
+dest_files=["res://.godot/imported/ability_blood_bullet_sheet.png-02856a7fb59514236c71017581678b0e.ctex"]
 
 [params]
 

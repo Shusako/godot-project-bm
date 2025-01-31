@@ -11,13 +11,17 @@ var expToLevelScale: float = 10.0
 var currentExp: float = 0
 var expToNextLevel: float = 0
 
+var expToHpFactor: float = 10
+
 @export var collectionRange: float = 50
-var absorbRange: float = 8
 var expSpeed: float = 80
 @onready var collector: Actor = get_parent() as Actor
 
 func _ready() -> void:
 	calcExpToNextLevel()
+
+func getAbsorbRange() -> float:
+	return 8
 
 func _physics_process(delta: float) -> void:
 	var collectorPosition = collector.global_position
@@ -35,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		
 		exp_node.linear_velocity += vectorToPlayer * expSpeed
 		
-		if exp_node.global_position.distance_to(collectorPosition) < absorbRange:
+		if exp_node.global_position.distance_to(collectorPosition) < getAbsorbRange():
 			gainExp(1)
 			exp_node.queue_free()
 			pass
@@ -46,6 +50,20 @@ func calcExpToNextLevel():
 	expToNextLevel = pow(level, 0.8) * 10
 
 func gainExp(amount: float):
+	# EXP conversion to health first
+	if collector.health != collector.maxHealth:
+		var healthNeeded = collector.maxHealth - collector.health
+		var expNeededForHealth = healthNeeded / expToHpFactor
+		var usableAmount = min(expNeededForHealth, amount)
+		
+		var conversion = usableAmount * expToHpFactor
+		collector.damage(-conversion)
+		
+		amount -= usableAmount
+	
+	if amount == 0:
+		return
+	
 	currentExp += amount
 	
 	# while because we could get a massive amount of Exp at once

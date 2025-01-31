@@ -3,7 +3,7 @@ extends Timer
 @export var spawnableEnemies: Array[spawnable_enemy] = []
 
 @onready var startTimestamp = Time.get_ticks_msec()
-var spawnRadius: float = 30 * 16
+@export var spawnRadius: float = 30 * 16
 
 func _ready() -> void:
 	self.timeout.connect(onTick)
@@ -11,7 +11,7 @@ func _ready() -> void:
 func getEnemy(currentTime: float) -> spawnable_enemy:
 	var pickList = spawnableEnemies.filter(
 		func(enemy):
-			return currentTime > enemy.earliestSpawnTime
+			return currentTime > enemy.earliestSpawnTime and randf_range(0, 1) > enemy.rarity
 	)
 	
 	# TODO: do something with .rarity
@@ -23,7 +23,7 @@ func onTick():
 	
 	var players = get_tree().get_nodes_in_group("player")
 	for player in players:
-		var numberToSpawn = randi_range(0, 5)
+		var numberToSpawn = min(1, levelTimeMinutes / 3 + 1)
 		for i in range(numberToSpawn):
 			var enemy = getEnemy(levelTimeMinutes)
 			
