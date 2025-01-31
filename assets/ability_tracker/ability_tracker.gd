@@ -1,8 +1,12 @@
 extends Node
 
+class_name AbilityTracker
+
 const BLOOD_BULLET = preload("res://assets/abilities/blood_bullet/blood_bullet.tscn")
 
 @export var nearbyArea: Area2D
+
+var activatedAbilities: Array[String] = []
 
 var bloodBulletCost = 1
 var bloodBulletCooldown = 10
@@ -37,7 +41,7 @@ func _on_timeout() -> void:
 	
 	# Check blood bullet
 	bloodBulletCounter -= 1
-	if bloodBulletCounter <= 0 and playerActor.health > bloodBulletCost:
+	if activatedAbilities.has("BLOOD BULLETS") and bloodBulletCounter <= 0 and playerActor.health > bloodBulletCost:
 		playerActor.damage(bloodBulletCost) # pay the blood price
 		
 		var bullet = BLOOD_BULLET.instantiate()

@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://cut8pmitgviy7"]
+
+[ext_resource type="Script" path="res://assets/gui/level_up/level_up.gd" id="1_0ituw"]
+[ext_resource type="Texture2D" uid="uid://dffaehgryangm" path="res://assets/gui/level_up/level_up_background.png" id="2_n6ptx"]
+[ext_resource type="Texture2D" uid="uid://bekw07efph1w4" path="res://assets/gui/level_up/level_up_title.png" id="3_nwods"]
+[ext_resource type="Texture2D" uid="uid://c6g0xehp5dq7f" path="res://assets/gui/level_up/level_up_button_background.png" id="4_im2db"]
+[ext_resource type="Texture2D" uid="uid://xi17ngf3wsya" path="res://assets/gui/level_up/hud_abilities_added.png" id="5_m0gnq"]
+
+[node name="LevelUpLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0ituw")
+
+[node name="LevelUp" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Sprite2D" parent="LevelUp"]
+position = Vector2(320, 144)
+scale = Vector2(2, 1.66667)
+texture = ExtResource("2_n6ptx")
+
+[node name="LevelUpTitle" type="Sprite2D" parent="LevelUp"]
+position = Vector2(320, 96)
+scale = Vector2(1.66667, 1.5)
+texture = ExtResource("3_nwods")
+
+[node name="Option 1" type="TextureButton" parent="LevelUp"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 112.0
+offset_right = 338.0
+offset_bottom = 134.0
+scale = Vector2(1.74783, 1.34091)
+texture_normal = ExtResource("4_im2db")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelUp/Option 1"]
+position = Vector2(10.2985, 10.4407)
+texture = ExtResource("5_m0gnq")
+hframes = 5
+vframes = 3
+
+[node name="Label" type="Label" parent="LevelUp/Option 1"]
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 110.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
+text = "HELLO"
+
+[node name="Option 2" type="TextureButton" parent="LevelUp"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 145.0
+offset_right = 338.0
+offset_bottom = 167.0
+scale = Vector2(1.74783, 1.34091)
+texture_normal = ExtResource("4_im2db")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelUp/Option 2"]
+position = Vector2(10.2985, 10.4407)
+texture = ExtResource("5_m0gnq")
+hframes = 5
+vframes = 3
+
+[node name="Label" type="Label" parent="LevelUp/Option 2"]
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 110.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
+text = "HELLO"
+
+[node name="Option 3" type="TextureButton" parent="LevelUp"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 178.0
+offset_right = 338.0
+offset_bottom = 200.0
+scale = Vector2(1.74783, 1.34091)
+texture_normal = ExtResource("4_im2db")
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelUp/Option 3"]
+position = Vector2(10.2985, 10.4407)
+texture = ExtResource("5_m0gnq")
+hframes = 5
+vframes = 3
+
+[node name="Label" type="Label" parent="LevelUp/Option 3"]
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 110.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 13
+text = "HELLO"
+
+[connection signal="pressed" from="LevelUp/Option 1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="LevelUp/Option 2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="LevelUp/Option 3" to="." method="_on_option_3_pressed"]

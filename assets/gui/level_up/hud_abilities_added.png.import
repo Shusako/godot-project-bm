@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3odtm3od6n3"
-path="res://.godot/imported/hud_level_up.png-0ab3b651674cd89914034cd56e505095.ctex"
+uid="uid://xi17ngf3wsya"
+path="res://.godot/imported/hud_abilities_added.png-0f516c7f0c38ac344c9bd48dd13382f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/hud_level_up.png"
-dest_files=["res://.godot/imported/hud_level_up.png-0ab3b651674cd89914034cd56e505095.ctex"]
+source_file="res://assets/gui/level_up/hud_abilities_added.png"
+dest_files=["res://.godot/imported/hud_abilities_added.png-0f516c7f0c38ac344c9bd48dd13382f9.ctex"]
 
 [params]
 

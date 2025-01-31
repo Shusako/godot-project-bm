@@ -21,12 +21,3 @@ func _process(delta: float) -> void:
 			if background_layer.get_cell_source_id(position) == -1:
 				background_layer.set_cell(position, 0, Vector2i(0, 0), 0)
 	
-
-
-func _on_intro_cutscene_animation_started(anim_name: StringName) -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property($"/root/Bgm", "volume_db", -10, 1)
-
-func _on_intro_cutscene_animation_finished(anim_name: StringName) -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property($"/root/Bgm", "volume_db", 0, 1)

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var actor: Actor = get_node("Actor") as Actor
+
 @export var SPEED: float = 5
 
 @onready var animation_tree: AnimationTree = $Visuals/AnimationTree
@@ -9,6 +11,10 @@ var direction: Vector2 = Vector2.ZERO
 
 var inCutscene: bool
 var stabbing: bool
+
+func _ready() -> void:
+	actor.health = actor.maxHealth / 10
+	actor.damage(-1)
 
 func _process(delta: float) -> void:	
 	updateAnimationTree()

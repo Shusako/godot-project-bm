@@ -14,12 +14,14 @@ var expToNextLevel: float = 0
 var expToHpFactor: float = 10
 
 @export var collectionRange: float = 50
-var absorbRange: float = 8
 var expSpeed: float = 80
 @onready var collector: Actor = get_parent() as Actor
 
 func _ready() -> void:
 	calcExpToNextLevel()
+
+func getAbsorbRange() -> float:
+	return 8
 
 func _physics_process(delta: float) -> void:
 	var collectorPosition = collector.global_position
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		
 		exp_node.linear_velocity += vectorToPlayer * expSpeed
 		
-		if exp_node.global_position.distance_to(collectorPosition) < absorbRange:
+		if exp_node.global_position.distance_to(collectorPosition) < getAbsorbRange():
 			gainExp(1)
 			exp_node.queue_free()
 			pass

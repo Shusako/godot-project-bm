@@ -7,6 +7,7 @@ extends Node
 @onready var animation_player: AnimationPlayer = $"../../Visuals/AnimationPlayer"
 const HOLY_LIGHT = preload("res://assets/abilities/holy_light/holy_light.tscn")
 
+var abilityRange: float = keepDistance + 30
 var abilityUsable: bool = true
 var abilityCooldown: float = 3.0
 
@@ -49,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	var velocityTowardsPlayer: Vector2 = (player.global_position - actor.physicsBody.global_position).normalized() * speed
 	actor.physicsBody.linear_velocity = velocityTowardsPlayer * moveModifier
 	
-	if abilityUsable:
+	if distance < abilityRange and abilityUsable:
 		print("using ability")
 		useAbility()
 	

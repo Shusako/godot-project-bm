@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://fa7a48mbas03"]
+[gd_scene load_steps=5 format=3 uid="uid://fa7a48mbas03"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_3omwk"]
+[ext_resource type="Texture2D" uid="uid://cloyb8711svp8" path="res://scenes/main_menu/title_screen_bloody_arsenal.png" id="2_gr26v"]
+[ext_resource type="Texture2D" uid="uid://t7tvld54p8tv" path="res://assets/gui/hud_play_button.png" id="3_sx6ac"]
+[ext_resource type="Texture2D" uid="uid://cffoduwqins16" path="res://assets/gui/hud_play_button_hovered.png" id="4_ii8xp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,21 +14,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3omwk")
 
-[node name="Play Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 121.0
-offset_right = 389.0
-offset_bottom = 179.0
-text = "PLAY"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180.25)
+scale = Vector2(2, 1.99722)
+texture = ExtResource("2_gr26v")
 
-[node name="Test World Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 195.0
-offset_top = 207.0
-offset_right = 470.0
-offset_bottom = 269.0
-text = "TEST WORLD"
+offset_left = 44.0
+offset_top = 276.0
+offset_right = 272.0
+offset_bottom = 340.0
+texture_normal = ExtResource("3_sx6ac")
+texture_hover = ExtResource("4_ii8xp")
+stretch_mode = 0
 
-[connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Test World Button" to="." method="_on_test_world_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_test_world_button_pressed"]

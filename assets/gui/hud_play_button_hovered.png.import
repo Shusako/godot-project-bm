@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xi17ngf3wsya"
-path="res://.godot/imported/hud_abilities_added.png-289d3a9dedd4719c5289e06e81b6222e.ctex"
+uid="uid://cffoduwqins16"
+path="res://.godot/imported/hud_play_button_hovered.png-fc009d0e278f6f94a7b434ca7f7bfe56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/hud_abilities_added.png"
-dest_files=["res://.godot/imported/hud_abilities_added.png-289d3a9dedd4719c5289e06e81b6222e.ctex"]
+source_file="res://assets/gui/hud_play_button_hovered.png"
+dest_files=["res://.godot/imported/hud_play_button_hovered.png-fc009d0e278f6f94a7b434ca7f7bfe56.ctex"]
 
 [params]
 

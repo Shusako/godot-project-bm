@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=22 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="Script" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
+[ext_resource type="Script" path="res://scenes/intro_cutscene.gd" id="1_4ut8s"]
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
 [ext_resource type="Script" path="res://assets/enemy_spawner/spawnable_enemy.gd" id="2_uks28"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bwsqpbjlq3a4p" path="res://assets/enemies/Paladin/paladin.tscn" id="6_3s1vx"]
 [ext_resource type="Script" path="res://assets/ability_tracker/ability_tracker.gd" id="6_g35pl"]
 [ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
+[ext_resource type="PackedScene" uid="uid://cut8pmitgviy7" path="res://assets/gui/level_up/level_up.tscn" id="12_xvq8g"]
 
 [sub_resource type="Animation" id="Animation_avx41"]
 length = 5.0
@@ -104,7 +106,7 @@ rarity = 0.0
 script = ExtResource("2_uks28")
 scene = ExtResource("5_qkrh0")
 earliestSpawnTime = 0.0
-rarity = 0.497
+rarity = 0.55
 
 [sub_resource type="Resource" id="Resource_wnaoo"]
 script = ExtResource("2_uks28")
@@ -115,8 +117,8 @@ rarity = 0.0
 [sub_resource type="Resource" id="Resource_uvwvj"]
 script = ExtResource("2_uks28")
 scene = ExtResource("6_3s1vx")
-earliestSpawnTime = 0.0
-rarity = 0.0
+earliestSpawnTime = 3.0
+rarity = 0.623
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r075b"]
 size = Vector2(640, 360)
@@ -127,15 +129,16 @@ size = Vector2(640, 360)
 libraries = {
 "": SubResource("AnimationLibrary_5dann")
 }
-autoplay = "RESET"
+autoplay = "startup"
+script = ExtResource("1_4ut8s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="EnemySpawner" type="Timer" parent="."]
 process_callback = 0
+autostart = true
 script = ExtResource("1_3vhc0")
 spawnableEnemies = Array[ExtResource("2_uks28")]([SubResource("Resource_7rlp0"), SubResource("Resource_47sbd"), SubResource("Resource_wnaoo"), SubResource("Resource_uvwvj")])
-spawnRadius = 200.0
 
 [node name="AbilityTracker" type="Timer" parent="." node_paths=PackedStringArray("nearbyArea")]
 wait_time = 0.1
@@ -147,12 +150,71 @@ nearbyArea = NodePath("../Player/Area2D")
 script = ExtResource("2_d8bd8")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="World"]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAACAP7/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAADAP7/AAAAAAAAAAADAP3/AAAAAAAAAAADAPz/AAAAAAAAAAACAPz/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAD///z/AAAAAAAAAAD+//z/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD7//3/AAAAAAAAAAD7//z/AAAAAAAAAAD7//7/AAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAIAAAD+/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAABAAIAAAACAAIAAAABAAMAAAABAAIAAAAAAAMAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAADAAEAAAACAP7/AAAAAAAAAAACAP3/AAACAAEAAAABAP3/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAADAP7/AAAAAAEAAAADAP3/AAAAAAAAAAADAPz/AAAAAAAAAAACAPz/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAD///z/AAAAAAAAAAD+//z/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD7//3/AAAAAAAAAAD7//z/AAAAAAAAAAD7//7/AAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAAKAAEAAAACAAEAAAAOAP3/AAABAAEAAAAMAPv/AAABAAEAAAAOAAQAAAABAAEAAAARAAMAAAABAAEAAAALAAUAAAABAAEAAAATAPv/AAABAAEAAAA=")
 tile_set = ExtResource("3_y6f0w")
 
 [node name="CollisionLayer" type="TileMapLayer" parent="World"]
-tile_map_data = PackedByteArray("AAACAP3/AAABAAAAAAABAAMAAAABAAAAAAD9/wMAAAABAAAAAAD8//v/AAACAAAAAAD9//v/AAADAAAAAAD+//v/AAADAAAAAAD///v/AAADAAAAAAAAAPv/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wIAAAAFAAEAAAD8/wEAAAAFAAEAAAD8/wAAAAAFAAEAAAD8////AAAFAAEAAAD8//7/AAAFAAEAAAD8//3/AAAFAAEAAAD8//z/AAAIAAAAAAD8/wMAAAAFAAEAAAD9//z/AAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAAAAPz/AAADAAAAAAABAPz/AAADAAAAAAACAPz/AAADAAAAAAD9/wQAAAADAAAAAAD+/wQAAAADAAAAAAD//wQAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAD8/wQAAAAIAAEAAAAFAPz/AAAJAAAAAAADAPz/AAADAAAAAAAEAPz/AAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAAJAAEAAAAFAAMAAAAFAAEAAAAFAAIAAAAIAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAAMAAIAAAADAAAAAAAFAP7/AAAIAAEAAAAGAP7/AAADAAAAAAAHAP7/AAADAAAAAAAIAP7/AAADAAAAAAAJAP7/AAADAAAAAAAKAP7/AAADAAAAAAALAP7/AAADAAAAAAAMAP7/AAADAAAAAAAFAP3/AAAFAAEAAAADAP7/AAABAAAAAAA=")
 tile_set = ExtResource("3_y6f0w")
+
+[node name="TutorialXP" type="Node" parent="World"]
+
+[node name="ExpBody" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(88, 8)
+
+[node name="ExpBody2" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(107, -3)
+
+[node name="ExpBody3" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(121, 19)
+
+[node name="ExpBody4" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(142, 13)
+
+[node name="ExpBody5" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(153, 0)
+
+[node name="ExpBody6" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(168, 8)
+
+[node name="ExpBody7" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(173, 25)
+
+[node name="ExpBody8" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(190, -1)
+
+[node name="ExpBody9" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(199, 20)
+
+[node name="ExpBody10" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(74, 26)
+
+[node name="ExpBody11" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(71, 1)
+
+[node name="ExpBody12" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(57, -7)
+
+[node name="ExpBody13" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(129, -7)
+
+[node name="ExpBody14" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(183, 10)
+
+[node name="ExpBody15" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(147, 26)
+
+[node name="ExpBody16" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(102, 19)
+
+[node name="ExpBody17" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(124, 3)
+
+[node name="ExpBody19" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(51, 21)
+
+[node name="ExpBody20" parent="World/TutorialXP" instance=ExtResource("7_wv635")]
+position = Vector2(69, 15)
 
 [node name="Player" parent="." instance=ExtResource("1_ctdg3")]
 physics_interpolation_mode = 1
@@ -165,192 +227,11 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_r075b")
 
-[node name="XP" type="Node" parent="."]
+[node name="LevelUpLayer" parent="." node_paths=PackedStringArray("abilityTracker") instance=ExtResource("12_xvq8g")]
+abilityTracker = NodePath("../AbilityTracker")
 
-[node name="ExpBody" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody2" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody3" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody4" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody5" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody6" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody7" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody8" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody9" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody10" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody11" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 49)
-
-[node name="ExpBody12" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody13" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody14" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody15" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody16" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody17" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody18" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody19" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody20" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody21" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 49)
-
-[node name="ExpBody22" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody23" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody24" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody25" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody26" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody27" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody28" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody29" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody30" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody31" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody32" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody33" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody34" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody35" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody36" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody37" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody38" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody39" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody40" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody41" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody42" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody43" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody44" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody45" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody46" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody47" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody48" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody49" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody50" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody51" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody52" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody53" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody54" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-69, 47)
-
-[node name="ExpBody55" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody56" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody57" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody58" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-75, 49)
-
-[node name="ExpBody59" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="ExpBody60" parent="XP" instance=ExtResource("7_wv635")]
-position = Vector2(-72, 47)
-
-[node name="Paladin" parent="." instance=ExtResource("6_3s1vx")]
-position = Vector2(92, 75)
-
-[connection signal="animation_finished" from="Intro Cutscene" to="World" method="_on_intro_cutscene_animation_finished"]
-[connection signal="animation_started" from="Intro Cutscene" to="World" method="_on_intro_cutscene_animation_started"]
+[connection signal="animation_finished" from="Intro Cutscene" to="Intro Cutscene" method="_on_animation_finished"]
+[connection signal="animation_started" from="Intro Cutscene" to="Intro Cutscene" method="_on_animation_started"]
