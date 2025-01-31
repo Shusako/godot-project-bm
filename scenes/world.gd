@@ -25,8 +25,8 @@ func _process(delta: float) -> void:
 
 func _on_intro_cutscene_animation_started(anim_name: StringName) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($"/root/Bgm", "volume_db", -10, 1)
+	tween.tween_property(Bgm, "volume_db", -13, 1.5)
 
 func _on_intro_cutscene_animation_finished(anim_name: StringName) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($"/root/Bgm", "volume_db", 0, 1)
+	tween.tween_property(Bgm, "volume_db", 0, 1.5)

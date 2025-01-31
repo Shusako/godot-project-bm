@@ -1,12 +1,16 @@
-[gd_scene load_steps=28 format=3 uid="uid://dv1esximyq2bf"]
+[gd_scene load_steps=32 format=3 uid="uid://dv1esximyq2bf"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
 [ext_resource type="PackedScene" uid="uid://pisqxwtrhp7l" path="res://assets/actor/exp_collector/exp_collector.tscn" id="3_5y8bx"]
-[ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
-[ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/char_cultist_naked_sheet.png" id="3_r41l1"]
+[ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/animations/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
+[ext_resource type="Texture2D" uid="uid://gbmir5f6hx2s" path="res://assets/player/animations/char_cultist_naked_sheet.png" id="3_r41l1"]
 [ext_resource type="PackedScene" uid="uid://csvwe3un73egg" path="res://assets/actor/bars/bars.tscn" id="4_b0m7m"]
-[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
+[ext_resource type="AudioStream" uid="uid://i5dv5fobjdey" path="res://sound/sfx/stab.mp3" id="5_6mvyd"]
+[ext_resource type="AudioStream" uid="uid://bsggya106vnge" path="res://sound/sfx/pull.mp3" id="6_nv6ox"]
+[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
+[ext_resource type="AudioStream" uid="uid://mc8ocgb50p0x" path="res://sound/sfx/drip.mp3" id="7_k1jyp"]
+[ext_resource type="AudioStream" uid="uid://cl71um8clnm41" path="res://sound/sfx/circle.mp3" id="8_1nv13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
 size = Vector2(12, 17)
@@ -135,7 +139,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_gjkkf"]
 resource_name = "Stab self"
-length = 5.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -184,6 +188,44 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stab self/StabSelfAudio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_6mvyd")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_nv6ox")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_k1jyp")
+}],
+"times": PackedFloat32Array(0.666667, 1, 1.33333)
+}
+tracks/4/use_blend = false
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Blood circle/BloodCircleSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0827552,
+"stream": ExtResource("8_1nv13")
+}],
+"times": PackedFloat32Array(2.26667)
+}
+tracks/5/use_blend = false
 
 [sub_resource type="Animation" id="Animation_xix2s"]
 resource_name = "idle"
@@ -361,12 +403,17 @@ position = Vector2(0, -13)
 texture = ExtResource("3_c8mxf")
 hframes = 18
 
+[node name="BloodCircleSound" type="AudioStreamPlayer2D" parent="Visuals/Stab self/Blood circle"]
+volume_db = -8.88
+
 [node name="Stab self" type="Sprite2D" parent="Visuals/Stab self"]
 visible = false
 z_index = 3
 position = Vector2(0, -13)
 texture = ExtResource("3_r41l1")
 hframes = 18
+
+[node name="StabSelfAudio" type="AudioStreamPlayer2D" parent="Visuals/Stab self/Stab self"]
 
 [node name="Standing" type="Node2D" parent="Visuals"]
 
