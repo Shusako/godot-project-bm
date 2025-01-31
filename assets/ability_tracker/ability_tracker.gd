@@ -12,7 +12,11 @@ func _ready():
 	self.timeout.connect(_on_timeout)
 
 func _on_timeout() -> void:
-	var player = (get_tree().get_nodes_in_group("player") as Array[RigidBody2D])[0]
+	var players = (get_tree().get_nodes_in_group("player") as Array[RigidBody2D])
+	if players.size() == 0:
+		return
+	
+	var player = players[0]
 	
 	var enemies = (nearbyArea.get_overlapping_bodies() as Array[RigidBody2D]).filter(
 		func(node): 
@@ -21,11 +25,6 @@ func _on_timeout() -> void:
 
 	if enemies.size() == 0:
 		return
-	
-	#enemies.sort_custom(
-		#func(enemy1):
-			#return enemy1.distance_to(player)
-	#)
 	
 	enemies.sort_custom(
 		func(enemy1, enemy2):

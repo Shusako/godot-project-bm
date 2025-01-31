@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://davsqutqqvowt"]
+[gd_scene load_steps=20 format=4 uid="uid://davsqutqqvowt"]
 
 [ext_resource type="Script" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
 [ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
 [ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
+[ext_resource type="PackedScene" uid="uid://bwsqpbjlq3a4p" path="res://assets/enemies/Paladin/paladin.tscn" id="6_3s1vx"]
 [ext_resource type="Script" path="res://assets/ability_tracker/ability_tracker.gd" id="6_g35pl"]
 [ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
 
@@ -111,6 +112,12 @@ scene = ExtResource("6_2hnjy")
 earliestSpawnTime = 1.0
 rarity = 0.0
 
+[sub_resource type="Resource" id="Resource_uvwvj"]
+script = ExtResource("2_uks28")
+scene = ExtResource("6_3s1vx")
+earliestSpawnTime = 0.0
+rarity = 0.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r075b"]
 size = Vector2(640, 360)
 
@@ -126,9 +133,8 @@ autoplay = "RESET"
 
 [node name="EnemySpawner" type="Timer" parent="."]
 process_callback = 0
-autostart = true
 script = ExtResource("1_3vhc0")
-spawnableEnemies = Array[ExtResource("2_uks28")]([SubResource("Resource_7rlp0"), SubResource("Resource_47sbd"), SubResource("Resource_wnaoo")])
+spawnableEnemies = Array[ExtResource("2_uks28")]([SubResource("Resource_7rlp0"), SubResource("Resource_47sbd"), SubResource("Resource_wnaoo"), SubResource("Resource_uvwvj")])
 spawnRadius = 200.0
 
 [node name="AbilityTracker" type="Timer" parent="." node_paths=PackedStringArray("nearbyArea")]
@@ -342,6 +348,9 @@ position = Vector2(-72, 47)
 
 [node name="ExpBody60" parent="XP" instance=ExtResource("7_wv635")]
 position = Vector2(-72, 47)
+
+[node name="Paladin" parent="." instance=ExtResource("6_3s1vx")]
+position = Vector2(92, 75)
 
 [connection signal="animation_finished" from="Intro Cutscene" to="World" method="_on_intro_cutscene_animation_finished"]
 [connection signal="animation_started" from="Intro Cutscene" to="World" method="_on_intro_cutscene_animation_started"]
