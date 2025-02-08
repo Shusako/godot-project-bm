@@ -50,7 +50,7 @@ func die():
 		expNode.global_position = self.global_position + Vector2(cos(angle), sin(angle))
 		get_tree().root.add_child(expNode)
 	
-	get_parent().queue_free()
+	get_parent().call_deferred("queue_free")
 
 func _physics_process(delta: float) -> void:	
 	if attackRange != 0:
