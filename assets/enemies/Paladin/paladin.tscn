@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwsqpbjlq3a4p"]
 
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="1_oq8m8"]
-[ext_resource type="Script" path="res://assets/enemies/Paladin/paladin_ai.gd" id="2_dlkuh"]
+[ext_resource type="Script" uid="uid://ci3c7qs0d0qsd" path="res://assets/enemies/Paladin/paladin_ai.gd" id="2_dlkuh"]
 [ext_resource type="PackedScene" uid="uid://csvwe3un73egg" path="res://assets/actor/bars/bars.tscn" id="3_jk5vv"]
 [ext_resource type="Texture2D" uid="uid://3kb2gjwe7xgk" path="res://assets/enemies/Paladin/char_paladin_sheet.png" id="4_xvkdn"]
 [ext_resource type="Texture2D" uid="uid://c5x7p8ybryyn3" path="res://assets/enemies/Paladin/char_paladin_attack1_sheet.png" id="5_pwjns"]
@@ -149,10 +149,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_njany"]
 _data = {
-"RESET": SubResource("Animation_eum08"),
-"casting": SubResource("Animation_fyihl"),
-"stand": SubResource("Animation_3g01o"),
-"walk": SubResource("Animation_e8l4b")
+&"RESET": SubResource("Animation_eum08"),
+&"casting": SubResource("Animation_fyihl"),
+&"stand": SubResource("Animation_3g01o"),
+&"walk": SubResource("Animation_e8l4b")
 }
 
 [node name="Paladin" type="RigidBody2D"]

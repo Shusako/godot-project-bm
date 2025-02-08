@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cut8pmitgviy7"]
 
-[ext_resource type="Script" path="res://assets/gui/level_up/level_up.gd" id="1_0ituw"]
+[ext_resource type="Script" uid="uid://dcbkuhe73leko" path="res://assets/gui/level_up/level_up.gd" id="1_0ituw"]
 [ext_resource type="Texture2D" uid="uid://dffaehgryangm" path="res://assets/gui/level_up/level_up_background.png" id="2_n6ptx"]
 [ext_resource type="Texture2D" uid="uid://bekw07efph1w4" path="res://assets/gui/level_up/level_up_title.png" id="3_nwods"]
 [ext_resource type="Texture2D" uid="uid://c6g0xehp5dq7f" path="res://assets/gui/level_up/level_up_button_background.png" id="4_im2db"]
@@ -45,6 +45,7 @@ hframes = 5
 vframes = 3
 
 [node name="Label" type="Label" parent="LevelUp/Option 1"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 1.0
 offset_right = 110.0
@@ -69,6 +70,7 @@ hframes = 5
 vframes = 3
 
 [node name="Label" type="Label" parent="LevelUp/Option 2"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 1.0
 offset_right = 110.0
@@ -93,6 +95,7 @@ hframes = 5
 vframes = 3
 
 [node name="Label" type="Label" parent="LevelUp/Option 3"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 1.0
 offset_right = 110.0

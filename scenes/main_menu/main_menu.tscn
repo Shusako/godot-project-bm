@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fa7a48mbas03"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_3omwk"]
+[ext_resource type="Script" uid="uid://dupb8i7rca7c3" path="res://scenes/main_menu/main_menu.gd" id="1_3omwk"]
 [ext_resource type="Texture2D" uid="uid://cloyb8711svp8" path="res://scenes/main_menu/title_screen_bloody_arsenal.png" id="2_gr26v"]
 [ext_resource type="Texture2D" uid="uid://t7tvld54p8tv" path="res://assets/gui/hud_play_button.png" id="3_sx6ac"]
 [ext_resource type="Texture2D" uid="uid://cffoduwqins16" path="res://assets/gui/hud_play_button_hovered.png" id="4_ii8xp"]

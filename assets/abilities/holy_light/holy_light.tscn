@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dra8lnm1lh6hy"]
 
-[ext_resource type="Script" path="res://assets/abilities/holy_light/holy_light.gd" id="1_gmpgc"]
+[ext_resource type="Script" uid="uid://ejln6kncn06v" path="res://assets/abilities/holy_light/holy_light.gd" id="1_gmpgc"]
 [ext_resource type="Texture2D" uid="uid://w6hybfbavs0v" path="res://assets/abilities/holy_light/ability_paladin_holy_light_sheet_48x96.png" id="1_vcgbp"]
 
 [sub_resource type="Animation" id="Animation_ua4ym"]
@@ -52,8 +52,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0ghr"]
 _data = {
-"RESET": SubResource("Animation_ua4ym"),
-"play": SubResource("Animation_mn5ed")
+&"RESET": SubResource("Animation_ua4ym"),
+&"play": SubResource("Animation_mn5ed")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c40o3"]

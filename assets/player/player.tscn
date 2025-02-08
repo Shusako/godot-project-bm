@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://dv1esximyq2bf"]
 
-[ext_resource type="Script" path="res://assets/player/player.gd" id="1_n3ib5"]
+[ext_resource type="Script" uid="uid://cm53t4rttcr5y" path="res://assets/player/player.gd" id="1_n3ib5"]
 [ext_resource type="PackedScene" uid="uid://eiggy1ciolum" path="res://assets/actor/Actor.tscn" id="2_lqab5"]
 [ext_resource type="PackedScene" uid="uid://pisqxwtrhp7l" path="res://assets/actor/exp_collector/exp_collector.tscn" id="3_5y8bx"]
 [ext_resource type="Texture2D" uid="uid://bc8lpelswvhap" path="res://assets/player/animations/char_cultist_naked_blood_circle_sheet.png" id="3_c8mxf"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 [ext_resource type="AudioStream" uid="uid://mc8ocgb50p0x" path="res://sound/sfx/drip.mp3" id="7_k1jyp"]
 [ext_resource type="AudioStream" uid="uid://cl71um8clnm41" path="res://sound/sfx/circle.mp3" id="8_1nv13"]
-[ext_resource type="Texture2D" uid="uid://d03q467e81na0" path="res://assets/player/animations/char_cultist_naked_run_sheet.png" id="6_ttmwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scc6a"]
 size = Vector2(12, 8)
@@ -341,11 +340,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o62r7"]
 _data = {
-"RESET": SubResource("Animation_bv24v"),
-"Stab self": SubResource("Animation_gjkkf"),
-"idle": SubResource("Animation_xix2s"),
-"walk_left": SubResource("Animation_mub4r"),
-"walk_right": SubResource("Animation_ali4o")
+&"RESET": SubResource("Animation_bv24v"),
+&"Stab self": SubResource("Animation_gjkkf"),
+&"idle": SubResource("Animation_xix2s"),
+&"walk_left": SubResource("Animation_mub4r"),
+&"walk_right": SubResource("Animation_ali4o")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -386,7 +385,7 @@ parameters/walk/blend_position = 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 root_node = NodePath("../Stab self")
 libraries = {
-"": SubResource("AnimationLibrary_o62r7")
+&"": SubResource("AnimationLibrary_o62r7")
 }
 autoplay = "RESET"
 

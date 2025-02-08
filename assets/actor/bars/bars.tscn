@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csvwe3un73egg"]
 
-[ext_resource type="Script" path="res://assets/actor/bars/bars.gd" id="1_lacsi"]
+[ext_resource type="Script" uid="uid://buihsa10823au" path="res://assets/actor/bars/bars.gd" id="1_lacsi"]
 
 [node name="Bars" type="Node2D"]
 script = ExtResource("1_lacsi")

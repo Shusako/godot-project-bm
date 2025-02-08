@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvkeog3h6kyxk"]
 
-[ext_resource type="Script" path="res://assets/actor/ai/basic_ai.gd" id="1_bxwp0"]
+[ext_resource type="Script" uid="uid://dqbv8m2rdfxp1" path="res://assets/actor/ai/basic_ai.gd" id="1_bxwp0"]
 
 [node name="BasicAi" type="Node"]
 script = ExtResource("1_bxwp0")

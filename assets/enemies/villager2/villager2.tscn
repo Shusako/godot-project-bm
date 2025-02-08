@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_njany"]
 _data = {
-"RESET": SubResource("Animation_eum08"),
-"walk": SubResource("Animation_e8l4b")
+&"RESET": SubResource("Animation_eum08"),
+&"walk": SubResource("Animation_e8l4b")
 }
 
 [node name="villager2" type="RigidBody2D"]

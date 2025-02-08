@@ -1,16 +1,16 @@
 [gd_scene load_steps=22 format=4 uid="uid://davsqutqqvowt"]
 
-[ext_resource type="Script" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
-[ext_resource type="Script" path="res://scenes/intro_cutscene.gd" id="1_4ut8s"]
+[ext_resource type="Script" uid="uid://c0bdmp87bl86e" path="res://assets/enemy_spawner/enemy_spawner.gd" id="1_3vhc0"]
+[ext_resource type="Script" uid="uid://dchfi44kfwujx" path="res://scenes/intro_cutscene.gd" id="1_4ut8s"]
 [ext_resource type="PackedScene" uid="uid://dv1esximyq2bf" path="res://assets/player/player.tscn" id="1_ctdg3"]
-[ext_resource type="Script" path="res://scenes/world.gd" id="2_d8bd8"]
-[ext_resource type="Script" path="res://assets/enemy_spawner/spawnable_enemy.gd" id="2_uks28"]
+[ext_resource type="Script" uid="uid://ccbiv7elvddou" path="res://scenes/world.gd" id="2_d8bd8"]
+[ext_resource type="Script" uid="uid://bucfjkihmv2m1" path="res://assets/enemy_spawner/spawnable_enemy.gd" id="2_uks28"]
 [ext_resource type="TileSet" uid="uid://c5v1eftv4tm7s" path="res://assets/tilemap/tileset.tres" id="3_y6f0w"]
 [ext_resource type="PackedScene" uid="uid://fmx40sdijlef" path="res://assets/enemies/villager1/villager1.tscn" id="4_6wojp"]
 [ext_resource type="PackedScene" uid="uid://cfo0tg0k065wl" path="res://assets/enemies/villager2/villager2.tscn" id="5_qkrh0"]
 [ext_resource type="PackedScene" uid="uid://1r0g3gqsbcla" path="res://assets/enemies/guard1/guard1.tscn" id="6_2hnjy"]
 [ext_resource type="PackedScene" uid="uid://bwsqpbjlq3a4p" path="res://assets/enemies/Paladin/paladin.tscn" id="6_3s1vx"]
-[ext_resource type="Script" path="res://assets/ability_tracker/ability_tracker.gd" id="6_g35pl"]
+[ext_resource type="Script" uid="uid://c428oismt1u1l" path="res://assets/ability_tracker/ability_tracker.gd" id="6_g35pl"]
 [ext_resource type="PackedScene" uid="uid://saa7m4wckgpa" path="res://assets/items/exp_orb/exp_orb.tscn" id="7_wv635"]
 [ext_resource type="PackedScene" uid="uid://cut8pmitgviy7" path="res://assets/gui/level_up/level_up.tscn" id="12_xvq8g"]
 
@@ -92,8 +92,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dann"]
 _data = {
-"RESET": SubResource("Animation_avx41"),
-"startup": SubResource("Animation_vmehq")
+&"RESET": SubResource("Animation_avx41"),
+&"startup": SubResource("Animation_vmehq")
 }
 
 [sub_resource type="Resource" id="Resource_7rlp0"]
@@ -127,7 +127,7 @@ size = Vector2(640, 360)
 
 [node name="Intro Cutscene" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5dann")
+&"": SubResource("AnimationLibrary_5dann")
 }
 autoplay = "startup"
 script = ExtResource("1_4ut8s")
