@@ -22,7 +22,7 @@ signal onDamaged(amount: float, currentHealth: float, maxHealth: float)
 
 const EXP_ORB = preload("res://assets/items/exp_orb/exp_orb.tscn")
 
-func _ready() -> void:	
+func _ready() -> void:
 	attack_circle.shape.radius = attackRange
 	hurt_circle.shape.radius = hurtRange
 	
@@ -48,7 +48,8 @@ func die():
 		var angle = randf() * 2 * PI
 		# small random offset
 		expNode.global_position = self.global_position + Vector2(cos(angle), sin(angle))
-		get_tree().root.add_child(expNode)
+		expNode.linear_velocity = Vector2(cos(angle), sin(angle))
+		get_tree().root.call_deferred("add_child", expNode)
 	
 	get_parent().call_deferred("queue_free")
 

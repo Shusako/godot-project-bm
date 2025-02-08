@@ -2,7 +2,7 @@ extends Node
 
 @onready var actor: Actor = get_parent() as Actor
 @export var speed: float = 20
-@export var keepDistance: float = 150
+@export var keepDistance: float = 100
 
 @onready var animation_player: AnimationPlayer = $"../../Visuals/AnimationPlayer"
 const HOLY_LIGHT = preload("res://assets/abilities/holy_light/holy_light.tscn")

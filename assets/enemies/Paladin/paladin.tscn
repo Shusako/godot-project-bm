@@ -199,6 +199,6 @@ hframes = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals"]
 libraries = {
-"": SubResource("AnimationLibrary_njany")
+&"": SubResource("AnimationLibrary_njany")
 }
 autoplay = "RESET"

@@ -10,4 +10,4 @@ func doDamage():
 	pass
 
 func animationDone():
-	self.queue_free()
+	self.call_deferred("queue_free")

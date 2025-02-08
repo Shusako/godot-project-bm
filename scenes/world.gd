@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var viewport = get_viewport()
 	var camera = viewport.get_camera_2d()
 	
@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 			if background_layer.get_cell_source_id(position) == -1:
 				background_layer.set_cell(position, 0, Vector2i(0, 0), 0)
 	
-
 
 func _on_intro_cutscene_animation_started(anim_name: StringName) -> void:
 	var tween = get_tree().create_tween()

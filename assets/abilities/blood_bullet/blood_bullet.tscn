@@ -53,7 +53,7 @@ script = ExtResource("1_pyrwe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qse64")
+&"": SubResource("AnimationLibrary_qse64")
 }
 autoplay = "blood_bullet"
 
